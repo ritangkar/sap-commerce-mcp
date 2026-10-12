@@ -1,0 +1,55 @@
+{
+  "name": "sap-commerce-mcp",
+  "version": "0.1.0",
+  "description": "Read-only SAP Commerce (HAC) inspection tools: a local MCP server and a local web workbench sharing one tool core. Local development only.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "bin": {
+    "sap-commerce-mcp": "./dist/mcp/main.js"
+  },
+  "scripts": {
+    "build": "npm run build:server && npm run build:web",
+    "build:server": "tsc -p tsconfig.build.json",
+    "build:web": "vite build --config src/web/frontend/vite.config.ts",
+    "start:mcp": "node dist/mcp/main.js",
+    "start:web": "node dist/web/backend/main.js",
+    "dev:mcp": "tsx src/mcp/main.ts",
+    "dev:web": "tsx src/web/backend/main.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p src/web/frontend/tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:live": "vitest run --config vitest.live.config.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.133.0",
+    "@google/genai": "^2.28.0",
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "openai": "^7.32.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "undici": "^8.11.2",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "eslint": "^10.12.0",
+    "globals": "^17.13.0",
+    "jsdom": "^29.1.1",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.1",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4"
+  }
+}

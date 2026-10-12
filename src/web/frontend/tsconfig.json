@@ -1,0 +1,18 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "@testing-library/jest-dom/vitest"
+    ],
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*",
+    "../../../tests/frontend/**/*"
+  ],
+  "exclude": []
+}
